@@ -12,8 +12,8 @@
                 // Redirect to Scene Viewer for Android devices
                 window.location.href = "https://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/amrkhaled04/3D-models/main/tissue.gltf&mode=ar_only";
             } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // Redirect to AR Quick Look for iOS devices
-                <model-viewer src="https://amrkhaled04.github.io/3D-models/Untitled%20Object.usdz" ar ar-modes="scene-viewer quick-look" camera-controls auto-rotate reveal="auto"></model-viewer>
+                // Show the AR Quick Look viewer for iOS devices
+                document.getElementById('ar-viewer').style.display = 'block';
             } else {
                 // Optional: handle other devices or desktop browsers
                 window.location.href = "https://your-default-link.com";
@@ -26,5 +26,10 @@
 </head>
 <body>
     <p>Redirecting, please wait...</p>
+
+    <!-- Hidden by default, shown only on iOS devices -->
+    <div id="ar-viewer" style="display: none;">
+        <model-viewer src="https://amrkhaled04.github.io/3D-models/Untitled%20Object.usdz" ar ar-modes="scene-viewer quick-look" camera-controls auto-rotate reveal="auto"></model-viewer>
+    </div>
 </body>
 </html>
