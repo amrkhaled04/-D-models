@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Quick Look</title>
-    <meta http-equiv="refresh" content="0;url=https://amrkhaled04.github.io/3D-models/Untitled%20Object.usdz">
+    <title>Redirecting...</title>
+    <script>
+        function redirectUser() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                // Redirect to Scene Viewer for Android devices
+                window.location.href = "https://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/amrkhaled04/3D-models/main/tissue.gltf&mode=ar_only";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // Redirect to AR Quick Look for iOS devices
+                window.location.href = "https://amrkhaled04.github.io/3D-models/Untitled%20Object.usdz";
+            } else {
+                // Optional: handle other devices or desktop browsers
+                window.location.href = "https://your-default-link.com";
+            }
+        }
+
+        // Redirect the user when the page loads
+        window.onload = redirectUser;
+    </script>
 </head>
 <body>
-    <p>If you're not redirected, <a href="https://amrkhaled04.github.io/3D-models/Untitled%20Object.usdz">click here</a>.</p>
+    <p>Redirecting, please wait...</p>
 </body>
 </html>
