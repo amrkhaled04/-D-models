@@ -4,26 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        #loading-message {
-            display: none;
-        }
-        #ar-viewer {
-            width: 100%;
-            height: 100%;
-            display: none;
-        }
-    </style>
-    <script type="module">
+    <script>
         function redirectUser() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -31,9 +12,8 @@
                 // Redirect to Scene Viewer for Android devices
                 window.location.href = "https://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/amrkhaled04/3D-models/main/tissue.gltf&mode=ar_only";
             } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // Show the AR Quick Look viewer for iOS devices
-                document.getElementById('loading-message').style.display = 'none';
-                document.getElementById('ar-viewer').style.display = 'block';
+                // Redirect to AR Quick Look for iOS devices
+                window.location.href = "quicklook://amrkhaled04.github.io/3D-models/Untitled%20Object.usdz";
             } else {
                 // Optional: handle other devices or desktop browsers
                 window.location.href = "https://your-default-link.com";
@@ -45,16 +25,6 @@
     </script>
 </head>
 <body>
-    <p id="loading-message">Redirecting, please wait...</p>
-
-    <!-- Hidden by default, shown only on iOS devices -->
-    <model-viewer id="ar-viewer"
-                  src="https://amrkhaled04.github.io/3D-models/Untitled%20Object.usdz"
-                  ar
-                  ar-modes="scene-viewer quick-look"
-                  camera-controls
-                  auto-rotate
-                  reveal="auto">
-    </model-viewer>
+    <p>Redirecting, please wait...</p>
 </body>
 </html>
