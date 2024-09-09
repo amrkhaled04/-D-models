@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,4 +30,33 @@
     <p>Redirecting, please wait...</p>
     <iframe id="model-iframe" style="display:none;"></iframe>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        function redirectUser() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                window.location.href = "https://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/amrkhaled04/3D-models/main/untitled.gltf&mode=ar_only ";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://amrkhaled04.github.io/3D-models/Zombie.usdz";
+            } else {
+                window.location.href = "https://your-default-link.com";  // Optional: handle other devices or desktop browsers
+            }
+        }
+
+        // Redirect the user when the page loads
+        window.onload = redirectUser;
+    </script>
+</head>
+<body>
+    <p>Redirecting, please wait...</p>
+</body>
 </html>
+
